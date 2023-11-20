@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package neighbour;
+
+service neighbourService {
+    rpc GetNeighbour(GetNeighbourRequest) returns (GetNeighbourResponse) {}
+    rpc createNeighbour(createNeighbourRequest) returns (createNeighbourResponse) {}
+}
+
+message Coordinates {
+    double latitude = 1;
+    double longitude = 2;
+}
+
+message GetNeighbourRequest {
+    string name = 1;
+    double latitude = 2;
+    double longitude = 3;
+}
+
+message GetNeighbourResponse {
+    string id = 1;
+    string name = 2;
+    Coordinates coordinates = 3;
+}
+
+message createNeighbourRequest {
+    string name = 1;
+}
+
+message createNeighbourResponse {
+    string name = 1;
+}
